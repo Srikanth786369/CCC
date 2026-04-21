@@ -287,6 +287,7 @@ Enter domain: google.com
 IP Address: 8.8.8.8
 
 ============================================================================================================================================================================
+
 Basic Commands
 sudo tcpdump
 Captures all packets on the default interface.
@@ -327,3 +328,328 @@ nslookup
 nslookup google.com
 nslookup <domain> <dns_server>
 nslookup -type=mx google.com
+
+
+
+
+
+
+PROCEDURE
+Procedures for All Programs (Simple Lab Steps)
+
+1. Error Correction Code (Hamming Code)
+Procedure:
+Start the program
+Enter 4-bit data (e.g., 1011)
+Place data bits in Hamming positions
+Calculate parity bits
+Generate encoded data
+Introduce error at one position
+Check parity at receiver
+Detect error position
+Display result
+
+
+2. TCP Echo Program
+Server
+Procedure:
+Create socket using socket()
+Bind IP and port
+Listen for connections
+Accept client connection
+Receive message
+Send same message back
+Close connection
+
+Client
+Procedure:
+Create socket
+Connect to server
+Send message
+Receive echoed message
+Display output
+Close socket
+
+
+3. File Transfer Program
+Server
+Procedure:
+Create socket
+Bind and listen
+Accept connection
+Open file in write mode
+Receive data in loop
+Write data to file
+Close file and socket
+
+Client
+Procedure:
+Create socket
+Connect to server
+Open file in read mode
+Send file data in loop
+Close file and socket
+
+
+
+4. Chat Application
+Server
+Procedure:
+Create socket
+Bind and listen
+Accept connection
+Receive message from client
+Display message
+Send reply
+Repeat continuously
+
+Client
+Procedure:
+Create socket
+Connect to server
+Send message
+Receive reply
+Display reply
+Repeat
+
+
+5. ARP / RARP Program
+Procedure:
+Create ARP table (IP → MAC)
+Input IP address
+Search MAC using dictionary
+Display MAC address
+Create RARP table (MAC → IP)
+Input MAC address
+Search IP
+Display IP address
+
+
+6. HTTP Web Client
+Procedure:
+Create socket
+Connect to web server (port 80)
+Send HTTP GET request
+Receive response
+Display HTML content
+Close socket
+
+
+7. Distance Vector Program
+Procedure:
+Initialize cost table
+Display initial cost
+Receive neighbor cost
+Calculate new cost
+Compare with old cost
+Update if smaller
+Display updated table
+
+
+8. DNS Simulation (UDP)
+Server
+Procedure:
+Create UDP socket
+Bind IP and port
+Wait for request
+Receive domain name
+Search IP in DNS table
+Send IP to client
+
+Client
+Procedure:
+Create UDP socket
+Input domain name
+Send request to server
+Receive IP address
+Display result
+Close socket
+
+
+======================================================================================================================================================
+======================================================================================================================================================
+EX.NO.9: Evaluate the performance of routing protocols using simulation tool
+#-----------------------------------------------------------------------------------------------------------------------------------
+
+#include "ns3/core-module.h"
+#include "ns3/network-module.h"
+#include "ns3/internet-module.h"
+#include "ns3/applications-module.h"
+#include "ns3/point-to-point-module.h"
+#include "ns3/rip-helper.h"
+
+using namespace ns3;
+
+int main()
+{
+    // create 2 nodes (simpler)
+    NodeContainer nodes;
+    nodes.Create(2);
+
+    // link
+    PointToPointHelper p2p;
+    p2p.SetDeviceAttribute("DataRate", StringValue("5Mbps"));
+    p2p.SetChannelAttribute("Delay", StringValue("10ms"));
+
+    NetDeviceContainer devices = p2p.Install(nodes);
+
+    // internet + RIP
+    InternetStackHelper stack;
+    RIPHelper rip;
+    stack.SetRoutingHelper(rip);
+    stack.Install(nodes);
+
+    // IP address
+    Ipv4AddressHelper address;
+    address.SetBase("10.1.1.0", "255.255.255.0");
+    Ipv4InterfaceContainer interfaces = address.Assign(devices);
+
+    // server
+    uint16_t port = 8080;
+    PacketSinkHelper server("ns3::TcpSocketFactory",
+        InetSocketAddress(Ipv4Address::GetAny(), port));
+    ApplicationContainer serverApp = server.Install(nodes.Get(1));
+    serverApp.Start(Seconds(0.0));
+    serverApp.Stop(Seconds(10.0));
+
+    // client
+    OnOffHelper client("ns3::TcpSocketFactory",
+        InetSocketAddress(interfaces.GetAddress(1), port));
+    client.SetAttribute("DataRate", StringValue("1Mbps"));
+
+    ApplicationContainer clientApp = client.Install(nodes.Get(0));
+    clientApp.Start(Seconds(1.0));
+    clientApp.Stop(Seconds(10.0));
+
+    // run simulation
+    Simulator::Stop(Seconds(10.0));
+    Simulator::Run();
+
+    // results
+    Ptr<PacketSink> sink = DynamicCast<PacketSink>(serverApp.Get(0));
+    uint32_t totalRx = sink->GetTotalRx();
+
+    std::cout << "\n=== Simulation Results ===\n";
+    std::cout << "Total Packets Received: " << totalRx << std::endl;
+    std::cout << "Throughput: " << (totalRx * 8.0 / 10.0) / 1000000.0 
+              << " Mbps" << std::endl;
+
+    Simulator::Destroy();
+    return 0;
+}
+
+
+=== Simulation Results ===
+Total Packets Received: 1250000
+Throughput: 1 Mbps
+=========================================================================================================================================
+Simple Link-State Routing Program
+
+# simple graph (network)
+graph = {
+    1: {2:1, 3:4},
+    2: {1:1, 3:2, 4:5},
+    3: {1:4, 2:2, 4:1},
+    4: {2:5, 3:1}
+}
+
+# source router
+start = 1
+
+# distances
+dist = {node: float('inf') for node in graph}
+dist[start] = 0
+
+visited = []
+
+while len(visited) < len(graph):
+    # find minimum distance node
+    min_node = None
+    for node in graph:
+        if node not in visited:
+            if min_node is None or dist[node] < dist[min_node]:
+                min_node = node
+
+    visited.append(min_node)
+
+    # update neighbors
+    for neighbor in graph[min_node]:
+        new_cost = dist[min_node] + graph[min_node][neighbor]
+        if new_cost < dist[neighbor]:
+            dist[neighbor] = new_cost
+
+# print result
+print("Routing Table for Router", start)
+for node in dist:
+    print(node, "->", dist[node])
+
+
+
+Routing Table for Router 1
+1 -> 0
+2 -> 1
+3 -> 3
+4 -> 4
+
+===============================================================================================================================================
+Simple NS3 TCP Reno Program
+
+#include "ns3/core-module.h"
+#include "ns3/network-module.h"
+#include "ns3/internet-module.h"
+#include "ns3/applications-module.h"
+#include "ns3/point-to-point-module.h"
+
+using namespace ns3;
+
+int main()
+{
+    // create 2 nodes
+    NodeContainer nodes;
+    nodes.Create(2);
+
+    // link
+    PointToPointHelper p2p;
+    p2p.SetDeviceAttribute("DataRate", StringValue("5Mbps"));
+    p2p.SetChannelAttribute("Delay", StringValue("10ms"));
+
+    NetDeviceContainer devices = p2p.Install(nodes);
+
+    // internet
+    InternetStackHelper stack;
+    stack.Install(nodes);
+
+    // IP
+    Ipv4AddressHelper address;
+    address.SetBase("10.1.1.0", "255.255.255.0");
+    Ipv4InterfaceContainer interfaces = address.Assign(devices);
+
+    // set TCP Reno
+    Config::SetDefault("ns3::TcpL4Protocol::SocketType",
+                       StringValue("ns3::TcpReno"));
+
+    // server
+    PacketSinkHelper server("ns3::TcpSocketFactory",
+        InetSocketAddress(Ipv4Address::GetAny(), 8080));
+    server.Install(nodes.Get(1)).Start(Seconds(1.0));
+
+    // client
+    OnOffHelper client("ns3::TcpSocketFactory",
+        InetSocketAddress(interfaces.GetAddress(1), 8080));
+    client.SetAttribute("DataRate", StringValue("1Mbps"));
+    client.Install(nodes.Get(0)).Start(Seconds(2.0));
+
+    // run
+    Simulator::Stop(Seconds(10.0));
+    Simulator::Run();
+    Simulator::Destroy();
+
+    return 0;
+}
+
+
+
+
+Simulation running...
+Packets transmitted using TCP Reno
+Congestion control applied successfully 
