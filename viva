@@ -1,0 +1,276 @@
+1. Error Correction Code (Hamming Code) – Viva Questions & Answers
+What is Hamming Code?
+Hamming Code is an error detection and correction technique used to detect and correct single-bit errors in data transmission.
+Why are parity bits used?
+Parity bits are used to check whether transmitted data contains errors.
+How many parity bits are needed for 4-bit data?
+3 parity bits are needed for 4-bit data.
+What is the advantage of Hamming Code?
+It can detect and correct single-bit errors automatically.
+What is meant by encoded data?
+Encoded data is the original data combined with parity bits.
+What is error detection?
+Finding whether transmitted data contains an error is called error detection.
+What is error correction?
+Identifying and fixing the error in received data is called error correction.
+What happens in the receiver side?
+Parity is checked again to detect the error position.
+Which type of error is corrected here?
+Single-bit error.
+What is the output of the program?
+It displays encoded data, received data, and detected error position.
+2. TCP Echo Program – Viva Questions & Answers
+What is TCP?
+TCP (Transmission Control Protocol) is a connection-oriented communication protocol.
+Why is TCP called reliable?
+Because it ensures data delivery without loss and in correct order.
+What is an Echo Server?
+An Echo Server sends back the same message received from the client.
+Which module is used in Python socket programming?
+The socket module.
+What does bind() do?
+It attaches the server to an IP address and port number.
+What is the purpose of listen()?
+It waits for incoming client connections.
+What does accept() do?
+It accepts a client connection request.
+What is the purpose of recv()?
+It receives data from the socket.
+What does send() do?
+It sends data through the socket.
+Which port is used in this program?
+Port 12345.
+3. Simple File Transfer Program – Viva Questions & Answers
+What is file transfer in networking?
+Sending a file from one computer to another through a network.
+Which protocol is used here?
+TCP protocol.
+Why is binary mode (rb, wb) used?
+To transfer all file types correctly.
+What does recv(1024) mean?
+It receives 1024 bytes of data at a time.
+Why is loop used while sending data?
+To transfer the complete file in chunks.
+What is the function of the server?
+The server receives and stores the file.
+What is the function of the client?
+The client sends the file to the server.
+What happens if the file is large?
+The file is transferred continuously in multiple packets.
+What is socket programming?
+Programming used for communication between systems over a network.
+What is the output of this experiment?
+The file is successfully transferred from client to server.
+4. Simple Chat Application – Viva Questions & Answers
+What is a chat application?
+A program used for exchanging messages between users.
+Which protocol is used?
+TCP protocol.
+Why is TCP preferred for chat?
+Because reliable communication is required.
+What does the server do?
+It receives and sends messages to the client.
+What does the client do?
+It sends messages and receives replies from the server.
+What is full duplex communication?
+Sending and receiving data simultaneously.
+Which socket functions are used?
+socket(), bind(), listen(), accept(), send(), and recv().
+Why is a loop used?
+To allow continuous chatting.
+What is the default localhost IP?
+127.0.0.1
+What is the advantage of socket programming?
+It enables communication between devices over a network.
+5. ARP / RARP Program – Viva Questions & Answers
+What is ARP?
+ARP (Address Resolution Protocol) converts IP addresses into MAC addresses.
+What is RARP?
+RARP (Reverse Address Resolution Protocol) converts MAC addresses into IP addresses.
+What is a MAC address?
+A unique hardware address assigned to a network device.
+What is an IP address?
+A logical address used to identify a device in a network.
+Why is ARP required?
+To communicate within a local network using MAC addresses.
+What data structure is used in this program?
+Dictionary.
+What is an ARP table?
+A table storing IP-to-MAC mappings.
+What is the purpose of RARP?
+To find the IP address from a known MAC address.
+Is RARP commonly used today?
+No, it is mostly replaced by DHCP and BOOTP.
+What is the output of this experiment?
+Mapped MAC or IP address is displayed.
+6. HTTP Web Client – Viva Questions & Answers
+What is HTTP?
+HTTP stands for HyperText Transfer Protocol.
+Which port is used by HTTP?
+Port 80.
+What is a web client?
+A client that requests web pages from a web server.
+What is a GET request?
+An HTTP request used to retrieve data from a server.
+What does socket.connect() do?
+It connects to the web server.
+What is returned by the server?
+HTML response and HTTP headers.
+What is the role of the Host field in HTTP?
+It specifies the target website name.
+What is the use of recv()?
+To receive server response.
+Which layer does HTTP belong to?
+Application layer.
+What is the output of this experiment?
+The HTML content of the web page is displayed.
+7. Distance Vector Program – Viva Questions & Answers
+What is Distance Vector Routing?
+A routing method where routers share routing information with neighbors.
+Which algorithm is used in Distance Vector routing?
+Bellman-Ford algorithm.
+What is routing?
+The process of selecting paths for data transmission.
+What is a routing table?
+A table containing route information to destinations.
+What is cost in routing?
+A value representing distance or path expense.
+Why is minimum cost selected?
+To find the shortest path.
+What is neighbor information?
+Routing information received from adjacent routers.
+What is the advantage of Distance Vector routing?
+Simple implementation.
+What is the disadvantage?
+Slow convergence and routing loops.
+What is the output of the program?
+Updated shortest path cost table.
+8. DNS Simulation (UDP) – Viva Questions & Answers
+What is DNS?
+DNS stands for Domain Name System.
+What is the purpose of DNS?
+It converts domain names into IP addresses.
+Which protocol is used in this program?
+UDP.
+Why is UDP used in DNS?
+Because DNS requires fast communication with less overhead.
+What does the server do?
+It maps domain names to IP addresses.
+What does the client do?
+It sends a domain request to the server.
+What is the default DNS port?
+Port 53.
+What is a domain name?
+A human-readable website name.
+What is an IP address?
+A numeric address used to identify a device.
+What is the output of this experiment?
+The corresponding IP address is displayed.
+9. Routing Protocol Simulation using NS3 – Viva Questions & Answers
+What is NS3?
+NS3 is a network simulator used for networking research and experiments.
+What is RIP?
+RIP (Routing Information Protocol) is a distance vector routing protocol.
+What is throughput?
+Amount of data transferred per second.
+Why is simulation used?
+To test network behavior without real hardware.
+What is Point-to-Point communication?
+Direct communication between two nodes.
+What is a node in NS3?
+A device or computer in the simulation.
+What is PacketSinkHelper?
+A server application that receives packets.
+What is OnOffHelper?
+A traffic generator application.
+What is the purpose of Simulator::Run()?
+To start the simulation.
+What is the output of this experiment?
+Total packets received and throughput.
+10. Link-State Routing Program – Viva Questions & Answers
+What is Link-State Routing?
+A routing method where routers know the complete network topology.
+Which algorithm is used?
+Dijkstra’s shortest path algorithm.
+What is a graph in networking?
+A representation of routers and links.
+What is a shortest path?
+The minimum-cost route between two nodes.
+What is a visited node?
+A node already processed in the algorithm.
+What is link cost?
+The metric value assigned to a network link.
+What is the advantage of Link-State routing?
+Fast convergence and accurate routing.
+What is the disadvantage?
+Requires more memory and processing power.
+What is the routing table?
+A table containing shortest path information.
+What is the output of this experiment?
+Shortest path cost from source router to all routers.
+11. NS3 TCP Reno Program – Viva Questions & Answers
+What is TCP Reno?
+A TCP congestion control algorithm.
+What is congestion control?
+Techniques used to avoid network traffic overload.
+What is packet loss?
+Loss of packets during transmission.
+What is throughput?
+Successful data transfer rate.
+Why is TCP Reno important?
+It improves reliable transmission during congestion.
+What is slow start in TCP Reno?
+A method that gradually increases transmission speed.
+What is congestion avoidance?
+A technique to prevent network congestion.
+What is NS3 used for?
+Network simulation and protocol testing.
+What is the purpose of Config::SetDefault()?
+To configure TCP Reno as the default protocol.
+What is the result of this experiment?
+Packets are transmitted using TCP Reno with congestion control.
+Networking Commands – Viva Questions & Answers
+tcpdump
+What is tcpdump?
+A packet capturing and network analysis tool.
+What is the use of -i option?
+To specify the network interface.
+What does tcpdump -i eth0 icmp do?
+Captures ICMP packets on eth0.
+What is a .pcap file?
+A packet capture file storing network traffic.
+Why is tcpdump used?
+For network troubleshooting and packet analysis.
+iperf
+What is iperf?
+A tool used to measure network performance.
+What does iperf -s do?
+Starts iperf in server mode.
+What does iperf -c do?
+Starts iperf in client mode.
+What parameters are measured?
+Bandwidth, transfer rate, and jitter.
+Why is iperf important?
+To test network speed and performance.
+ifconfig
+What is ifconfig?
+A command used to configure network interfaces.
+What does ifconfig eth0 up do?
+Enables the eth0 interface.
+What does ifconfig eth0 down do?
+Disables the eth0 interface.
+What information does ifconfig display?
+IP address, MAC address, and interface status.
+Which layer is related to ifconfig?
+Network layer.
+nslookup
+What is nslookup?
+A DNS query tool.
+What is the use of nslookup google.com?
+Finds the IP address of google.com.
+What does -type=mx do?
+Displays mail exchange records.
+Why is nslookup used?
+For DNS troubleshooting.
+Which protocol is associated with DNS?
+UDP/TCP.
