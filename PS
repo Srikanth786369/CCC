@@ -288,4 +288,315 @@ PYTHON PROGRAM PROCEDURES (Pycrypt Libraries / Logic)
 
 
 
+1. Caesar Cipher – Viva Questions & Answers
+
+
+What is Caesar Cipher?
+Caesar Cipher is a substitution cipher where each letter is shifted by a fixed number.
+Who invented Caesar Cipher?
+Julius Caesar invented it.
+What type of cipher is Caesar Cipher?
+Monoalphabetic substitution cipher.
+What is the key in Caesar Cipher?
+The shift value.
+What is encryption?
+Converting plaintext into ciphertext.
+What is decryption?
+Converting ciphertext back into plaintext.
+What happens if the shift exceeds 26?
+It wraps around the alphabet using modulo operation.
+Is Caesar Cipher secure?
+No, it is weak against brute-force attacks
+What is plaintext?
+Original readable message.
+What is ciphertext?
+Encrypted unreadable message. 
+
+
+
+2. Playfair Cipher – Viva Questions & Answers
+What is Playfair Cipher?
+A digraph substitution cipher that encrypts two letters together.
+Why is Playfair stronger than Caesar Cipher?
+Because it encrypts pairs of letters instead of single letters.
+What size matrix is used in Playfair Cipher?
+5 × 5 matrix.
+Why are I and J combined?
+To fit 25 letters into the matrix.
+What happens if two letters in a pair are same?
+An extra letter like X is inserted.
+What is the key used for?
+To generate the matrix.
+What rule is used for same row letters?
+Shift right.
+What rule is used for same column letters?
+Shift downward.
+What happens in rectangle rule?
+Columns are swapped.
+What type of cipher is Playfair Cipher?
+Symmetric key cipher. 
+
+
+
+3. Hill Cipher – Viva Questions & Answers
+What is Hill Cipher?
+A polygraphic substitution cipher based on matrix multiplication.
+Which mathematical concept is used?
+Linear algebra and matrices.
+What is the key in Hill Cipher?
+A square matrix.
+Why is modulo 26 used?
+Because there are 26 alphabets.
+How are letters represented?
+A=0 to Z=25.
+What is required for decryption?
+Inverse key matrix.
+What type of cipher is Hill Cipher?
+Block cipher.
+What happens if determinant is not invertible mod 26?
+Decryption becomes impossible.
+What is the advantage of Hill Cipher?
+Provides better security than simple substitution ciphers.
+Which library is used here?
+NumPy. 
+
+
+4. Rail Fence Cipher – Viva Questions & Answers
+What is Rail Fence Cipher?
+A transposition cipher using zigzag arrangement.
+What is the key in Rail Fence Cipher?
+Number of rails.
+What type of cipher is it?
+Transposition cipher.
+How is encryption performed?
+By writing text in zigzag pattern.
+How is ciphertext generated?
+By reading row-wise.
+What is plaintext?
+Original message.
+What is decryption?
+Reconstructing zigzag pattern to get original text.
+Is Rail Fence Cipher secure?
+No, it is a simple cipher.
+What is the advantage of this cipher?
+Easy to implement.
+What is the output of the experiment?
+Encrypted and decrypted text. 
+
+
+
+5. Columnar Transposition Cipher – Viva Questions & Answers
+What is Columnar Transposition Cipher?
+A cipher where letters are rearranged column-wise.
+What is used as key?
+A keyword or numeric order.
+What type of cipher is this?
+Transposition cipher.
+How is encryption done?
+Text is written row-wise and read column-wise.
+Why is padding used?
+To fill empty spaces in the matrix.
+What character is commonly used for padding?
+X.
+What determines column order?
+Alphabetical order of the key.
+What is the advantage of transposition cipher?
+Letter frequencies remain hidden by rearrangement.
+What is decryption?
+Reconstructing original arrangement of text.
+What is the output?
+Encrypted and decrypted message. 
+
+
+
+6. DES Algorithm – Viva Questions & Answers
+What is DES?
+DES stands for Data Encryption Standard.
+What type of algorithm is DES?
+Symmetric key algorithm.
+What is the key size of DES?
+56 bits.
+How many rounds are used in DES?
+16 rounds.
+What type of cipher is DES?
+Block cipher.
+What is the block size of DES?
+64 bits.
+Why is DES considered insecure today?
+Because of small key size.
+What is symmetric encryption?
+Same key is used for encryption and decryption.
+Which tool is used in this experiment?
+CrypTool.
+What is the output of DES?
+Ciphertext.
+
+
+
+7. AES Algorithm – Viva Questions & Answers
+What is AES?
+AES stands for Advanced Encryption Standard.
+What type of algorithm is AES?
+Symmetric block cipher.
+What key sizes are supported in AES?
+128, 192, and 256 bits.
+Why is AES more secure than DES?
+Because it uses larger keys and stronger encryption.
+What is the block size of AES?
+128 bits.
+Where is AES used?
+Wi-Fi, banking, and secure communications.
+Is AES symmetric or asymmetric?
+Symmetric.
+What is plaintext?
+Original readable data.
+What is ciphertext?
+Encrypted unreadable data.
+Which tool is used here?
+CrypTool. 
+
+
+
+8. RSA Algorithm – Viva Questions & Answers
+What is RSA?
+RSA is an asymmetric encryption algorithm.
+What does RSA stand for?
+Rivest, Shamir, and Adleman.
+What keys are used in RSA?
+Public key and private key.
+Which key is used for encryption?
+Public key.
+Which key is used for decryption?
+Private key.
+What type of algorithm is RSA?
+Public key cryptography algorithm.
+What is the advantage of RSA?
+Secure key exchange.
+What mathematical concept is used?
+Prime number factorization.
+Is RSA slower than AES?
+Yes.
+Where is RSA used?
+Digital signatures and secure communication.
+
+
+
+9. Diffie-Hellman Key Exchange – Viva Questions & Answers
+What is Diffie-Hellman?
+A method for securely exchanging cryptographic keys.
+Is Diffie-Hellman an encryption algorithm?
+No, it is a key exchange algorithm.
+What are the public values used?
+Prime number (p) and base (g).
+What is the purpose of private key?
+To generate public and shared keys.
+What is shared secret key?
+A common key generated by both users.
+What is the advantage of Diffie-Hellman?
+Secure key exchange over insecure channels.
+Which attack affects Diffie-Hellman?
+Man-in-the-middle attack.
+Is the shared key same for both users?
+Yes.
+What type of cryptography is used?
+Public key cryptography.
+Where is Diffie-Hellman used?
+VPN and HTTPS connections.
+
+
+
+10. SHA-1 Message Digest – Viva Questions & Answers
+What is SHA-1?
+SHA-1 is a hashing algorithm.
+What is the output size of SHA-1?
+160 bits.
+What is hashing?
+Converting data into fixed-size digest.
+Is SHA-1 reversible?
+No.
+What is message digest?
+Fixed-length hash value.
+What is SHA-1 mainly used for?
+Integrity checking.
+Why is SHA-1 insecure today?
+Because collisions can occur.
+What is collision in hashing?
+Two inputs producing same hash.
+Is SHA-1 encryption?
+No, it is hashing.
+What is the output of SHA-1?
+160-bit hash value.
+
+
+
+11. MD5 Message Digest – Viva Questions & Answers
+What is MD5?
+A hashing algorithm producing 128-bit digest.
+What is the output size of MD5?
+128 bits
+Is MD5 secure today?
+No.
+What is hashing used for?
+Integrity verification.
+Is MD5 reversible?
+No.
+What is collision?
+Same hash generated for different inputs.
+What is the advantage of MD5?
+Fast hash generation.
+What is the disadvantage of MD5?
+Weak security.
+Is MD5 encryption?
+No.
+Where is MD5 used?
+File integrity checking.
+
+
+
+12. Digital Signature Standard (DSS) – Viva Questions & Answers
+What is DSS?
+Digital Signature Standard used for digital signatures.
+Which algorithm is used here?
+DSA.
+What is digital signature?
+Electronic method to verify authenticity of data.
+What is the purpose of SHA-256?
+To generate hash of the message.
+Which key signs the message?
+Private key
+Which key verifies the signature?
+Public key.
+What is authentication?
+Verifying sender identity.
+Wat is integrity?
+Ensuring data is not modified.
+What happens if verification fails?
+Signature becomes invalid.
+Which Python library is used?
+PyCryptodome. 
+
+
+
+13. Intrusion Detection System (Snort) – Viva Questions & Answers
+What is Snort?
+Snort is an intrusion detection and prevention tool.
+What is IDS?
+Intrusion Detection System.
+What is the purpose of Snort?
+To monitor and detect suspicious network activity.
+What are Snort rules?
+Conditions used to identify attacks.
+What is packet sniffing?
+Capturing and analyzing network packets.
+What is an alert in Snort?
+Warning generated when suspicious activity is detected.
+What is intrusion?
+Unauthorized access or attack on a system.
+What mode is used in Snort experiment?
+Monitoring mode.
+Can Snort prevent attacks?
+Yes, in IPS mode.
+What is the output of Snort?
+Alerts and log files. 
+
 
